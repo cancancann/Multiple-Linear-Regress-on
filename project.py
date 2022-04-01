@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import linear_model
+import pickle #save and load
 
 dataframe = pd.read_csv("multilinearregression.csv", sep=";")
 # print(dataframe)
@@ -14,6 +15,10 @@ reg.fit(dataframe[['alan','odasayisi','binayasi']],dataframe['fiyat']) #öğrenm
 #Prediction 
 tahmin1 = reg.predict([[230,4,10]]) #tahmini fiyat 530..
 # print(tahmin1)
+model_dosyasi = "saveload_mlr_model.pickle"
+pickle.dump(reg , open(model_dosyasi,'wb')) #writing and open in binary mode
+
+
 tahmin2 = reg.predict([[230,6,0]]) #predict->586...
 # print(tahmin2)
 tahmin3 = reg.predict([[355,3,20]]) #616...
