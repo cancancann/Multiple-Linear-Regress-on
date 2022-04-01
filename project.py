@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from sklearn import linear_model
 import pickle #save and load
 
+mymodel = pickle.load(open("saveload_mlr_model.pickle","rb"))
+
 dataframe = pd.read_csv("multilinearregression.csv", sep=";")
 # print(dataframe)
 
